@@ -15,13 +15,6 @@ namespace ProyectoN1
             String path = "C:\\Tareas\\ProyectoN1\\Resultados.json";
             String descarga = File.ReadAllText(path);
             equipos = JsonConvert.DeserializeObject<String[,]>(descarga);
-
-            
-            
-
-
-
-
             InitializeComponent();
 
 
@@ -31,8 +24,10 @@ namespace ProyectoN1
         {
             for (int i = 0; i < equipos.GetLength(0); i++)
             { combo1.Items.Add(equipos[i, 1]); combo2.Items.Add(equipos[i, 1] ); }
-
-            textBox2.Text=Convert.ToString(combo1.SelectedItem);
+            btnInicio.Enabled = false;
+          
         }
+
+        
     }
 }
