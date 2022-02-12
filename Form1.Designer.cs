@@ -53,6 +53,7 @@
             this.listBoxGFavor = new System.Windows.Forms.ListBox();
             this.listBoxGContra = new System.Windows.Forms.ListBox();
             this.listBoxDGoles = new System.Windows.Forms.ListBox();
+            this.BtnResultado = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // combo1
@@ -299,11 +300,22 @@
             this.listBoxDGoles.Size = new System.Drawing.Size(43, 184);
             this.listBoxDGoles.TabIndex = 26;
             // 
+            // BtnResultado
+            // 
+            this.BtnResultado.Location = new System.Drawing.Point(462, 55);
+            this.BtnResultado.Name = "BtnResultado";
+            this.BtnResultado.Size = new System.Drawing.Size(143, 28);
+            this.BtnResultado.TabIndex = 27;
+            this.BtnResultado.Text = "Resultado";
+            this.BtnResultado.UseVisualStyleBackColor = true;
+            this.BtnResultado.Click += new System.EventHandler(this.BtnResultado_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 475);
+            this.Controls.Add(this.BtnResultado);
             this.Controls.Add(this.listBoxDGoles);
             this.Controls.Add(this.listBoxGContra);
             this.Controls.Add(this.listBoxGFavor);
@@ -363,5 +375,6 @@
         private ListBox listBoxGFavor;
         private ListBox listBoxGContra;
         private ListBox listBoxDGoles;
+        private Button BtnResultado;
     }
 }

@@ -18,6 +18,8 @@ namespace ProyectoN1
         private int golesFavor=7;
         private int golesContra=8;
         private int diferenciaGoles =9;
+
+        //Metodo de Lanzamiento deL Formulario
         public Form1()
         {
             //Lineas De Codigo Encargadas de Subir la Info
@@ -45,7 +47,23 @@ namespace ProyectoN1
                 listBoxDGoles.Items.Add(clubs[i,diferenciaGoles]);
             }
         }
+        
+        //Metodo Encargado de Limpiar Tabla
+        public void LimpiarTabla()
+        {
+            listBoxPosicion.Items.Clear();
+            listBoxClub.Items.Clear();
+            listBoxJugados.Items.Clear();
+            listBoxPts.Items.Clear();
+            listBoxGanados.Items.Clear();
+            listBoxEmpates.Items.Clear();
+            listBoxPerdidos.Items.Clear();
+            listBoxGFavor.Items.Clear();
+            listBoxGContra.Items.Clear();
+            listBoxDGoles.Items.Clear();
+        }
 
+        //Metodo Encargado de Cargar la informacion al Combobox
         private void BtnCargarEquipos_Click(object sender, EventArgs e)
         {
             //Carga la Informacion de la Matriz en los Combobox
@@ -64,6 +82,50 @@ namespace ProyectoN1
 
         }
 
-       
+        private void BtnResultado_Click(object sender, EventArgs e)
+        {
+            String equipoLocal = "", equipoVisita = "";
+            int resultadoLocal=0, resultadoVisita=0; 
+
+            equipoLocal= Convert.ToString(combo1.SelectedItem);
+            equipoVisita= Convert.ToString(combo2.SelectedItem);
+            resultadoLocal =Convert.ToInt32(txtcombo1.Text);
+            resultadoVisita = Convert.ToInt32(txtcombo2.Text);
+
+            if(resultadoLocal > resultadoVisita)
+            {
+               for(int i = 0;i < equipos.GetLength(0); i++)
+                {
+                    if (equipoLocal.Equals(equipos[i, nombreClub]))
+                    {
+                        equipos[i, puntos] = (Convert.ToInt32(equipos[i, puntos]) + 3) + "";
+                        equipos[i, ganados] = (Convert.ToInt32(equipos[i, ganados]) + 1) + "";
+                        equipos[i, golesFavor] = (Convert.ToInt32(equipos[i, golesFavor]) + resultadoLocal) + "";
+                        equipos[i, golesContra] = (Convert.ToInt32(equipos[i, golesContra]) + resultadoVisita)+"";
+                        equipos[i, diferenciaGoles] = (Convert.ToInt32(equipos[i, golesFavor]) - Convert.ToInt32(equipos[i, golesContra])) + "";
+                    }
+                    else if (equipoVisita.Equals(equipos[i, nombreClub]))
+                    {
+                        equipos[i, perdidos] = (Convert.ToInt32(equipos[i, perdidos]) + 1) + "";
+                        equipos[i,golesFavor] = (Convert.ToInt32(equipos[i, golesFavor]) + resultadoVisita) + "";
+                        equipos[i, golesContra] = (Convert.ToInt32(equipos[i, golesContra]) + resultadoLocal) + "";
+                        equipos[i, diferenciaGoles] = (Convert.ToInt32(equipos[i, golesFavor]) - Convert.ToInt32(equipos[i, golesContra])) + "";
+                    }
+                }
+               LimpiarTabla();
+               CargarTabla(equipos);
+            }
+            else if(resultadoLocal < resultadoVisita)
+            {
+                MessageBox.Show("El Equipo Visita Gano");
+            }
+            else
+            {
+                MessageBox.Show("Empate");
+            }
+
+
+
+        }
     }
 }
