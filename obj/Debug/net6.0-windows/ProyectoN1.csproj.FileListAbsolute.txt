@@ -17,3 +17,4 @@ C:\Tareas\ProyectoN1\obj\Debug\net6.0-windows\ProyectoN1.dll
 C:\Tareas\ProyectoN1\obj\Debug\net6.0-windows\ref\ProyectoN1.dll
 C:\Tareas\ProyectoN1\obj\Debug\net6.0-windows\ProyectoN1.pdb
 C:\Tareas\ProyectoN1\obj\Debug\net6.0-windows\ProyectoN1.genruntimeconfig.cache
+C:\Tareas\ProyectoN1\obj\Debug\net6.0-windows\ProyectoN1.Properties.Resources.resources

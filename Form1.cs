@@ -35,32 +35,16 @@ namespace ProyectoN1
         {
             for(int i = 0; i < clubs.GetLength(0); i++)
             {
-               listBoxPosicion.Items.Add(clubs[i, posicion]);
-               listBoxClub.Items.Add(clubs[i,nombreClub]);
-               listBoxJugados.Items.Add(clubs[i,jugados]);
-               listBoxPts.Items.Add(clubs[i,puntos]);
-               listBoxGanados.Items.Add(clubs[i,ganados]);
-               listBoxEmpates.Items.Add(clubs[i,empates]);
-               listBoxPerdidos.Items.Add(clubs[i,perdidos]);
-               listBoxGFavor.Items.Add(clubs[i, golesFavor]);
-               listBoxGContra.Items.Add(clubs[i, golesContra]);
-                listBoxDGoles.Items.Add(clubs[i,diferenciaGoles]);
+                Tabla.Rows.Add(clubs[i, posicion], clubs[i, nombreClub], clubs[i, jugados], clubs[i, puntos], 
+                clubs[i, ganados], clubs[i, empates], clubs[i, perdidos], clubs[i, golesFavor], 
+                clubs[i, golesContra], clubs[i, diferenciaGoles]);
             }
         }
         
         //Metodo Encargado de Limpiar Tabla
         public void LimpiarTabla()
         {
-            listBoxPosicion.Items.Clear();
-            listBoxClub.Items.Clear();
-            listBoxJugados.Items.Clear();
-            listBoxPts.Items.Clear();
-            listBoxGanados.Items.Clear();
-            listBoxEmpates.Items.Clear();
-            listBoxPerdidos.Items.Clear();
-            listBoxGFavor.Items.Clear();
-            listBoxGContra.Items.Clear();
-            listBoxDGoles.Items.Clear();
+            Tabla.Rows.Clear();
         }
 
         //Boton-Evento Encargado de Cargar la informacion al Combobox
@@ -185,5 +169,7 @@ namespace ProyectoN1
 
 
         }
+
+       
     }
 }
