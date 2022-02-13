@@ -63,7 +63,7 @@ namespace ProyectoN1
             listBoxDGoles.Items.Clear();
         }
 
-        //Metodo Encargado de Cargar la informacion al Combobox
+        //Boton-Evento Encargado de Cargar la informacion al Combobox
         private void BtnCargarEquipos_Click(object sender, EventArgs e)
         {
             //Carga la Informacion de la Matriz en los Combobox
@@ -79,9 +79,11 @@ namespace ProyectoN1
             combo2.Enabled = true;
             txtcombo1.Enabled = true;
             txtcombo2.Enabled = true;
+            BtnResultado.Enabled = true;
 
         }
 
+        //Boton-Evento Encargado de Agregar Puntos y Goles
         private void BtnResultado_Click(object sender, EventArgs e)
         {
             String equipoLocal = "", equipoVisita = "";
@@ -92,8 +94,14 @@ namespace ProyectoN1
             resultadoLocal =Convert.ToInt32(txtcombo1.Text);
             resultadoVisita = Convert.ToInt32(txtcombo2.Text);
 
+            //If de error
+            if (equipoLocal.Equals(equipoVisita))
+            {
+                MessageBox.Show("Seleccionaste el Mismo Equipo - ERROR");
+            }
+
             //If si el Equipo Local Gana
-            if(resultadoLocal > resultadoVisita)
+            else if(resultadoLocal > resultadoVisita)
             {
                for(int i = 0;i < equipos.GetLength(0); i++)
                 {
@@ -141,12 +149,37 @@ namespace ProyectoN1
                         equipos[i, golesContra] = (Convert.ToInt32(equipos[i, golesContra]) + resultadoVisita) + "";
                         equipos[i, diferenciaGoles] = (Convert.ToInt32(equipos[i, golesFavor]) - Convert.ToInt32(equipos[i, golesContra])) + "";
                     }
-
                 }
+                LimpiarTabla();
+                CargarTabla(equipos);
             }
+
+            //If Si hay Empate
             else
             {
-                MessageBox.Show("Empate");
+                for(int i = 0; i < equipos.GetLength(0); i++)
+                {
+                    if(equipoLocal.Equals(equipos[i, nombreClub]))
+                    {
+                        equipos[i, jugados] = (Convert.ToInt32(equipos[i, jugados]) + 1) + "";
+                        equipos[i, puntos] = (Convert.ToInt32(equipos[i, puntos]) + 1) + "";
+                        equipos[i, empates] = (Convert.ToInt32(equipos[i, empates]) + 1) + "";
+                        equipos[i, golesFavor] = (Convert.ToInt32(equipos[i, golesFavor]) + resultadoLocal) + "";
+                        equipos[i, golesContra] = (Convert.ToInt32(equipos[i, golesContra]) + resultadoVisita) + "";
+                        equipos[i, diferenciaGoles] = (Convert.ToInt32(equipos[i, golesFavor]) - Convert.ToInt32(equipos[i, golesContra])) + "";
+                    }
+                    else if (equipoVisita.Equals(equipos[i, nombreClub]))
+                    {
+                        equipos[i, jugados] = (Convert.ToInt32(equipos[i, jugados]) + 1) + "";
+                        equipos[i, puntos] = (Convert.ToInt32(equipos[i, puntos]) + 1) + "";
+                        equipos[i, empates] = (Convert.ToInt32(equipos[i, empates]) + 1) + "";
+                        equipos[i, golesFavor] = (Convert.ToInt32(equipos[i, golesFavor]) + resultadoVisita) + "";
+                        equipos[i, golesContra] = (Convert.ToInt32(equipos[i, golesContra]) + resultadoLocal) + "";
+                        equipos[i, diferenciaGoles] = (Convert.ToInt32(equipos[i, golesFavor]) - Convert.ToInt32(equipos[i, golesContra])) + "";
+                    }
+                }
+                LimpiarTabla();
+                CargarTabla(equipos);
             }
 
 
