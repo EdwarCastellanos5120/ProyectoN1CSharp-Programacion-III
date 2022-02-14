@@ -47,6 +47,7 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Tabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +98,7 @@
             // BtnCargarEquipos
             // 
             this.BtnCargarEquipos.BackColor = System.Drawing.Color.DarkOrange;
-            this.BtnCargarEquipos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCargarEquipos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCargarEquipos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnCargarEquipos.Location = new System.Drawing.Point(12, 12);
             this.BtnCargarEquipos.Name = "BtnCargarEquipos";
@@ -111,7 +112,7 @@
             // 
             this.BtnResultado.BackColor = System.Drawing.Color.Crimson;
             this.BtnResultado.Enabled = false;
-            this.BtnResultado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnResultado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnResultado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnResultado.Location = new System.Drawing.Point(562, 34);
             this.BtnResultado.Name = "BtnResultado";
@@ -224,6 +225,21 @@
             this.Column10.Name = "Column10";
             this.Column10.Width = 125;
             // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.BackColor = System.Drawing.Color.Navy;
+            this.BtnActualizar.Enabled = false;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
+            this.BtnActualizar.Location = new System.Drawing.Point(1133, 158);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(149, 37);
+            this.BtnActualizar.TabIndex = 30;
+            this.BtnActualizar.Text = "Actualizar";
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -232,6 +248,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1307, 473);
+            this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.Tabla);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.BtnResultado);
@@ -270,5 +287,6 @@
         private DataGridViewTextBoxColumn Column8;
         private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column10;
+        private Button BtnActualizar;
     }
 }

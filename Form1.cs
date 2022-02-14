@@ -7,15 +7,8 @@ namespace ProyectoN1
     {
         //Variable Global
         String[,] equipos;
-        String[,] club;
-        int[] J;
-        int[] PTS;
-        int[] G;
-        int[] E;
-        int[] P;
-        int[] GF;
-        int[] GC;
-        int[] DG;
+        String[,] equiposOrdenados;
+        
 
         //Encabezados de Columnas
         private int posicion = 0;
@@ -29,19 +22,18 @@ namespace ProyectoN1
         private int golesContra=8;
         private int diferenciaGoles =9;
 
+        String path = "C:\\Tareas\\ProyectoN1\\Resultados.json";
+
         //Metodo de Lanzamiento deL Formulario
         public Form1()
         {
-            //Lineas De Codigo Encargadas de Subir la Info
-            String path = "C:\\Tareas\\ProyectoN1\\Resultados.json";
+            //Lineas De Codigo Encargadas de Subir la Info         
             String descarga = File.ReadAllText(path);
             equipos = JsonConvert.DeserializeObject<String[,]>(descarga);
             InitializeComponent();
            
         }
-
-       
-
+     
         //Metodo Encargado de Cargar la Tabla
         public void CargarTabla(String[,] clubs)
         {
@@ -51,23 +43,8 @@ namespace ProyectoN1
             {
                 Tabla.Rows.Add(clubs[i, posicion], clubs[i, nombreClub], clubs[i, jugados], clubs[i, puntos], 
                 clubs[i, ganados], clubs[i, empates], clubs[i, perdidos], clubs[i, golesFavor], 
-                clubs[i, golesContra], clubs[i, diferenciaGoles]);
-
-                
-                
-                    //NO funciona
-                    J[i] = Convert.ToInt32(clubs[i, jugados]);
-                    PTS[i] = Convert.ToInt32(clubs[i, puntos]);
-                    G[i] = Convert.ToInt32(clubs[i, ganados]);
-                    E[i] = Convert.ToInt32(clubs[i, empates]);
-                    P[i] = Convert.ToInt32(clubs[i, perdidos]);
-                    GF[i] = Convert.ToInt32(clubs[i, golesFavor]);
-                    GC[i] = Convert.ToInt32(clubs[i, golesContra]);
-                    DG[i] = Convert.ToInt32(clubs[i, diferenciaGoles]);
-                
-            }
-
-           
+                clubs[i, golesContra], clubs[i, diferenciaGoles]);                    
+            }   
         }
         
         //Metodo Encargado de Limpiar Tabla
@@ -136,8 +113,6 @@ namespace ProyectoN1
                         equipos[i, diferenciaGoles] = (Convert.ToInt32(equipos[i, golesFavor]) - Convert.ToInt32(equipos[i, golesContra])) + "";
                     }
                 }
-               LimpiarTabla();
-               CargarTabla(equipos);
             }
 
             //If si el Equipo Visita Gana
@@ -163,8 +138,6 @@ namespace ProyectoN1
                         equipos[i, diferenciaGoles] = (Convert.ToInt32(equipos[i, golesFavor]) - Convert.ToInt32(equipos[i, golesContra])) + "";
                     }
                 }
-                LimpiarTabla();
-                CargarTabla(equipos);
             }
 
             //If Si hay Empate
@@ -191,14 +164,24 @@ namespace ProyectoN1
                         equipos[i, diferenciaGoles] = (Convert.ToInt32(equipos[i, golesFavor]) - Convert.ToInt32(equipos[i, golesContra])) + "";
                     }
                 }
-                LimpiarTabla();
-                CargarTabla(equipos);
+               
             }
 
-            
-
+            ClsOrdenar ord=new ClsOrdenar();
+            equiposOrdenados = ord.ordenar(equipos);
+            LimpiarTabla();
+            CargarTabla(equiposOrdenados);
+            File.Delete(path);
+            var carga = JsonConvert.SerializeObject(equiposOrdenados);
+            File.WriteAllText(path, carga);
+            BtnActualizar.Enabled = true;
         }
 
-       
+        //Boton-Evento Encargado De Actualizar Tabla
+        private void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            LimpiarTabla();
+            CargarTabla(equiposOrdenados);
+        }
     }
 }
