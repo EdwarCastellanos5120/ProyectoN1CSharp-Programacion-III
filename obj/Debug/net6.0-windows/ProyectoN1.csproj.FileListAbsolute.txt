@@ -5,7 +5,6 @@ C:\Tareas\ProyectoN1\bin\Debug\net6.0-windows\ProyectoN1.dll
 C:\Tareas\ProyectoN1\bin\Debug\net6.0-windows\ref\ProyectoN1.dll
 C:\Tareas\ProyectoN1\bin\Debug\net6.0-windows\ProyectoN1.pdb
 C:\Tareas\ProyectoN1\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
-C:\Tareas\ProyectoN1\obj\Debug\net6.0-windows\ProyectoN1.csproj.AssemblyReference.cache
 C:\Tareas\ProyectoN1\obj\Debug\net6.0-windows\ProyectoN1.Form1.resources
 C:\Tareas\ProyectoN1\obj\Debug\net6.0-windows\ProyectoN1.csproj.GenerateResource.cache
 C:\Tareas\ProyectoN1\obj\Debug\net6.0-windows\ProyectoN1.GeneratedMSBuildEditorConfig.editorconfig

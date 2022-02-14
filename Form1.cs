@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using ProyectoN1.Clases;
 
 namespace ProyectoN1
 {
@@ -6,6 +7,15 @@ namespace ProyectoN1
     {
         //Variable Global
         String[,] equipos;
+        String[,] club;
+        int[] J;
+        int[] PTS;
+        int[] G;
+        int[] E;
+        int[] P;
+        int[] GF;
+        int[] GC;
+        int[] DG;
 
         //Encabezados de Columnas
         private int posicion = 0;
@@ -30,15 +40,34 @@ namespace ProyectoN1
            
         }
 
+       
+
         //Metodo Encargado de Cargar la Tabla
         public void CargarTabla(String[,] clubs)
         {
+           
+            
             for(int i = 0; i < clubs.GetLength(0); i++)
             {
                 Tabla.Rows.Add(clubs[i, posicion], clubs[i, nombreClub], clubs[i, jugados], clubs[i, puntos], 
                 clubs[i, ganados], clubs[i, empates], clubs[i, perdidos], clubs[i, golesFavor], 
                 clubs[i, golesContra], clubs[i, diferenciaGoles]);
+
+                
+                
+                    //NO funciona
+                    J[i] = Convert.ToInt32(clubs[i, jugados]);
+                    PTS[i] = Convert.ToInt32(clubs[i, puntos]);
+                    G[i] = Convert.ToInt32(clubs[i, ganados]);
+                    E[i] = Convert.ToInt32(clubs[i, empates]);
+                    P[i] = Convert.ToInt32(clubs[i, perdidos]);
+                    GF[i] = Convert.ToInt32(clubs[i, golesFavor]);
+                    GC[i] = Convert.ToInt32(clubs[i, golesContra]);
+                    DG[i] = Convert.ToInt32(clubs[i, diferenciaGoles]);
+                
             }
+
+           
         }
         
         //Metodo Encargado de Limpiar Tabla
@@ -166,7 +195,7 @@ namespace ProyectoN1
                 CargarTabla(equipos);
             }
 
-
+            
 
         }
 
