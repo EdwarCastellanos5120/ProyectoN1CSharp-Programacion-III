@@ -42,37 +42,6 @@ namespace ProyectoN1.Clases
                     //Ordenar por Puntos
                     if (PTS[j] < PTS[j + 1])
                     {
-                       tem_PTS= PTS[j];
-                       temp_nombreClub = nombreClub[j];
-                       tem_J=J[j];
-                       tem_G=G[j];
-                       tem_E=E[j];
-                       tem_P=P[j];
-                       tem_GF=GF[j];
-                       tem_GC=GC[j];
-                       tem_DG=DG[j];
-                       PTS[j]=PTS[j+1];
-                       nombreClub[j]=nombreClub[j+1];
-                       J[j]=J[j+1];
-                       G[j]=G[j+1];
-                       E[j]=E[j+1];
-                       P[j]=P[j+1];
-                       GF[j]=GF[j+1];
-                       GC[j]=GC[j+1];
-                       DG[j]=DG[j+1];
-                       PTS[j + 1] = tem_PTS;
-                       nombreClub[j + 1] = temp_nombreClub;
-                       J[j + 1] = tem_J;
-                       G[j + 1] = tem_G;
-                       E[j + 1] = tem_E;
-                       P[j + 1] = tem_P;
-                       GF[j + 1] = tem_GF;
-                       GC[j + 1] = tem_GC;
-                       DG[j + 1] = tem_DG;
-                    }
-                    //Ordenar Diferencia Goles
-                    else if(DG[j] < DG[j + 1])
-                    {
                         tem_PTS = PTS[j];
                         temp_nombreClub = nombreClub[j];
                         tem_J = J[j];
@@ -100,13 +69,76 @@ namespace ProyectoN1.Clases
                         GF[j + 1] = tem_GF;
                         GC[j + 1] = tem_GC;
                         DG[j + 1] = tem_DG;
-                    }
 
+                        //Ordenar Diferencia Goles
+                        if (DG[j] < DG[j + 1])
+                        {
+                            tem_PTS = PTS[j];
+                            temp_nombreClub = nombreClub[j];
+                            tem_J = J[j];
+                            tem_G = G[j];
+                            tem_E = E[j];
+                            tem_P = P[j];
+                            tem_GF = GF[j];
+                            tem_GC = GC[j];
+                            tem_DG = DG[j];
+                            PTS[j] = PTS[j + 1];
+                            nombreClub[j] = nombreClub[j + 1];
+                            J[j] = J[j + 1];
+                            G[j] = G[j + 1];
+                            E[j] = E[j + 1];
+                            P[j] = P[j + 1];
+                            GF[j] = GF[j + 1];
+                            GC[j] = GC[j + 1];
+                            DG[j] = DG[j + 1];
+                            PTS[j + 1] = tem_PTS;
+                            nombreClub[j + 1] = temp_nombreClub;
+                            J[j + 1] = tem_J;
+                            G[j + 1] = tem_G;
+                            E[j + 1] = tem_E;
+                            P[j + 1] = tem_P;
+                            GF[j + 1] = tem_GF;
+                            GC[j + 1] = tem_GC;
+                            DG[j + 1] = tem_DG;
+
+
+                            //Ordenar Por Goles
+                            if (GF[j] < GF[j + 1])
+                            {
+                                tem_PTS = PTS[j];
+                                temp_nombreClub = nombreClub[j];
+                                tem_J = J[j];
+                                tem_G = G[j];
+                                tem_E = E[j];
+                                tem_P = P[j];
+                                tem_GF = GF[j];
+                                tem_GC = GC[j];
+                                tem_DG = DG[j];
+                                PTS[j] = PTS[j + 1];
+                                nombreClub[j] = nombreClub[j + 1];
+                                J[j] = J[j + 1];
+                                G[j] = G[j + 1];
+                                E[j] = E[j + 1];
+                                P[j] = P[j + 1];
+                                GF[j] = GF[j + 1];
+                                GC[j] = GC[j + 1];
+                                DG[j] = DG[j + 1];
+                                PTS[j + 1] = tem_PTS;
+                                nombreClub[j + 1] = temp_nombreClub;
+                                J[j + 1] = tem_J;
+                                G[j + 1] = tem_G;
+                                E[j + 1] = tem_E;
+                                P[j + 1] = tem_P;
+                                GF[j + 1] = tem_GF;
+                                GC[j + 1] = tem_GC;
+                                DG[j + 1] = tem_DG;
+
+
+                            }
+                        }
+                    }  
                 }
             }
-
-
-
             for(int y=0; y < clubs.GetLength(0); y++) {
 
                 equipos[y, 0] = (y + 1) +"";
