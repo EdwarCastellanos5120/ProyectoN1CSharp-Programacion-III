@@ -22,7 +22,7 @@ namespace ProyectoN1
         private int golesContra=8;
         private int diferenciaGoles =9;
 
-        String path = "C:\\Tareas\\ProyectoNumero1\\ProyectoN1\\Resultados.json";
+        String path = "C:\\Tareas\\ProyectoN1\\Resultados.json";
 
         //Metodo de Lanzamiento deL Formulario
         public Form1()
